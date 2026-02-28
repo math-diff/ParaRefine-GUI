@@ -1,0 +1,41 @@
+$options
+ffdir forcefield
+jobtype newton
+criteria {criteria}
+forcefield {forcefield}
+penalty_type {penalty_type}
+normalize_weights {normalize_weights}
+constrain_charge 1
+maxstep {maxstep}
+convergence_step {convergence_step}
+convergence_objective {convergence_objective}
+convergence_gradient {convergence_gradient}
+trust0 {trust0}
+mintrust {mintrust}
+adaptive_damping {adaptive_damping}
+adaptive_factor {adaptive_factor}
+eig_lowerbound {eig_lowerbound}
+backup 0
+penalty_additive {penalty_additive}
+error_tolerance 1
+finite_difference_h 0.0001
+$end
+
+#####################
+
+$target
+name ligand_optgeo
+type OptGeoTarget_GMX
+weight 1.0
+writelevel 1
+$end
+
+$target
+name ligand_vib
+type vibration_gmx
+weight {weight}
+coords ligand.gro
+reassign_modes {reassign_modes}
+wavenumber_tol {wavenumber_tol}
+writelevel 1
+$end

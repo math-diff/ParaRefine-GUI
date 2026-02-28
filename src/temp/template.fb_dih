@@ -1,0 +1,35 @@
+$options
+ffdir forcefield
+jobtype newton
+criteria {criteria}
+forcefield {forcefield}
+penalty_type {penalty_type}
+normalize_weights {normalize_weights}
+constrain_charge 1
+maxstep {maxstep}
+convergence_step {convergence_step}
+convergence_objective {convergence_objective}
+convergence_gradient {convergence_gradient}
+trust0 {trust0}
+mintrust {mintrust}
+adaptive_damping {adaptive_damping}
+adaptive_factor {adaptive_factor}
+eig_lowerbound {eig_lowerbound}
+backup 0
+penalty_additive {penalty_additive}
+error_tolerance 1
+finite_difference_h 0.0001
+$end
+
+#########AbInitio_dih
+$target
+name ligand_dih
+type AbInitio_GMX
+weight {weight}
+energy {energy}
+force {force}
+w_energy {w_energy}
+w_force {w_force}
+coords scan.pdb
+writelevel 1
+$end

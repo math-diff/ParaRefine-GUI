@@ -1,0 +1,9 @@
+# global
+global,rho_denom,{rho_denom}
+global,hvap_denom,{hvap_denom}
+#header define
+t,p,rho,rho_wt,hvap,hvap_wt,mbar
+# data
+{temp},{pressure} atm,{rho},1.0,{hvap},1.0,FALSE
+
+

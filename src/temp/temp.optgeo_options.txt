@@ -1,0 +1,13 @@
+$global
+bond_denom {bond_denom}
+angle_denom {angle_denom}
+dihedral_denom {dihedral_denom}
+improper_denom {improper_denom}
+$end
+
+$system
+name eth
+geometry ligand_optget.pdb   # 坐标
+topology ligand_optget.pdb  # 提供连接关系 (Molecule 类读这个)
+gmx_top  topol.top    # 真正的 GMX 拓扑 (GMX 引擎读这个)
+$end

@@ -1,0 +1,37 @@
+$options
+ffdir forcefield
+jobtype newton
+criteria {criteria}
+forcefield {forcefield}
+penalty_type {penalty_type}
+normalize_weights {normalize_weights}
+constrain_charge 1
+maxstep {maxstep}
+convergence_step {convergence_step}
+convergence_objective {convergence_objective}
+convergence_gradient {convergence_gradient}
+trust0 {trust0}
+mintrust {mintrust}
+adaptive_damping {adaptive_damping}
+adaptive_factor {adaptive_factor}
+eig_lowerbound {eig_lowerbound}
+backup 0
+penalty_additive {penalty_additive}
+error_tolerance 1
+finite_difference_h 0.001
+$end
+
+#########liquid
+$target
+name ligand_liquid
+type Liquid_GMX
+weight {weight}
+liquid_eq_steps    {liquid_eq_steps}
+liquid_md_steps     {liquid_md_steps}
+liquid_timestep         {liquid_timestep}
+gas_md_steps       {gas_md_steps}
+gas_timestep            {gas_timestep}
+w_rho  {w_rho}
+w_hvap  {w_hvap}
+md_threads  {md_threads}
+$end

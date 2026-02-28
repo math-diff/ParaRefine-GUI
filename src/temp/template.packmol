@@ -1,0 +1,9 @@
+tolerance 2.0
+filetype pdb
+output liquid.pdb
+
+structure gas.pdb
+  number {number}
+  inside box 0.0 0.0 0.0 30.0 30.0 30.0
+end structure
+

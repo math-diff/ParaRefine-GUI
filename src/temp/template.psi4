@@ -1,0 +1,24 @@
+memory {MEMORY_SIZE} gb
+set_num_threads({THREAD_CPU})
+molecule {
+{CHARGE} {MULTIPLICITY}
+{COORDINATES}
+     units angstrom
+     no_reorient
+     no_com
+     symmetry c1
+}
+
+set {
+    basis         {BASIS_SET}  
+    scf_type      df           
+    g_convergence gau_tight
+    hessian_write on
+    guess         sad
+   print         1
+maxiter       150
+geom_maxiter  100 
+}
+optimize('{METHOD}')
+frequency('{METHOD}')
+

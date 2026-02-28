@@ -1,0 +1,37 @@
+; 模拟控制
+integrator              = md    ; 或者 sd (随机动力学) 在真空中控温更稳，但 md + v-rescale 也行
+dt                      = 0.002
+nsteps                  = 10000 ; 20ns，如果不跑那么久，改小点也没事，比如 2500000 (5ns)
+comm_mode               = angular  ; 移除平动和转动，防止分子乱飞
+nstcomm                 = 100
+; 输出控制
+nstxout                 = 0
+nstvout                 = 0
+nstfout                 = 0
+nstlog                  = 5000
+nstenergy               = 500      ; 1ps 记录一次能量足够了
+xtc_grps                = System
+energygrps              = System
+; 邻居搜索与截断 (全算策略)
+nstlist                 = 0        ; 不更新邻居列表
+ns_type                 = simple   ; 简单全原子对搜索
+rlist                   = 0        ; 无限大
+pbc                     = no       ; 无周期性边界条件
+; 静电与范德华 (无限截断)
+coulombtype             = cut-off
+rcoulomb                = 0        ; 无限大
+vdwtype                 = cut-off
+rvdw                    = 0        ; 无限大
+; 你的液相用了 Force-switch，但真空中全原子对计算不需要 switch，直接算完即可
+; 约束 (必须与液相一致!!!)
+constraints             = h-bonds  ; 之前的也是 h-bonds，必须匹配
+constraint_algorithm    = LINCS
+; 温控
+tcoupl                  = v-rescale
+tc_grps                 = System
+tau_t                   = 0.1      ; 真空中单分子温度波动大，耦合时间可以稍微改小一点(0.1 或 0.5)，或者保持 1.0
+ref_t                   = 298.0
+; 生成速度
+gen_vel                 = yes
+gen_temp                = 298.0
+gen_seed                = 123456
